@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install vim-gtk - to be able to work with system clipboard
+sudo apt-get install vim-gtk
+
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

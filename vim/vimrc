@@ -9,13 +9,65 @@
 
 
 call plug#begin('~/.vim/plugged')
-
 " Make sure you use single quotes
+
+" General
+Plug 'scrooloose/syntastic'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Navigation
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+
+" JavaScript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 
+"Python
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+
 " Add plugins to &runtimepath
 call plug#end()
+
+
+
+" ----------------------------------------------------------------------------
+" General
+" ----------------------------------------------------------------------------
+set encoding=utf-8  " uft-8 by default
+set ls=2            " always show status bar
+set incsearch
+set hlsearch        " highlight search results
+set nu              " show line numbers
+
+" disable backup/swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
+
+
+
+" ----------------------------------------------------------------------------
+" Clipboard - yank, put, etc. to clipboard instead of registers
+" ----------------------------------------------------------------------------
+set clipboard+=unnamedplus
+
+
+
+" ----------------------------------------------------------------------------
+" Buffers 
+" ----------------------------------------------------------------------------
+set splitbelow
+set splitright
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
 
 
 
@@ -43,3 +95,69 @@ set noshiftround
 set smarttab
 
 set backspace=indent,eol,start        " bs anything
+
+
+
+" ----------------------------------------------------------------------------
+" NERDTree
+" ----------------------------------------------------------------------------
+if argc() == 0                        " Show NERDTree if vim started without params
+  autocmd VimEnter * NERDTree
+endif
+
+map <F2> :NERDTreeToggle<CR>
+
+" NERDTree files highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('jsx', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('html', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+
+" ignore files in tree
+let NERDTreeIgnore=['\.pyc$', '\~$']
+
+
+
+
+" ----------------------------------------------------------------------------
+" CtrlP 
+" ----------------------------------------------------------------------------
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules)$'
+
+
+
+" ----------------------------------------------------------------------------
+" Airline 
+" ----------------------------------------------------------------------------
+let g:airline#extensions#tabline#enabled = 1
+
+
+
+" ----------------------------------------------------------------------------
+" YouCompleteMe 
+" ----------------------------------------------------------------------------
+let g:ycm_autoclose_preview_window_after_completion = 1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+
+" ----------------------------------------------------------------------------
+" Syntastic 
+" ----------------------------------------------------------------------------
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+
+
+" ----------------------------------------------------------------------------
+" JavaScript
+" ----------------------------------------------------------------------------
+let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
