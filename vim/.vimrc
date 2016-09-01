@@ -7,13 +7,22 @@
 " ╚═╝ ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ╚═╝  ╚═╝  ╚═════╝
 "
 
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
 
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " General
 Plug 'scrooloose/syntastic'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -154,10 +163,3 @@ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
-
-
-" ----------------------------------------------------------------------------
-" JavaScript
-" ----------------------------------------------------------------------------
-let g:jsx_ext_required = 0
-let g:syntastic_javascript_checkers = ['eslint']
