@@ -34,6 +34,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 "Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
@@ -138,8 +139,7 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " ----------------------------------------------------------------------------
 " CtrlP 
 " ----------------------------------------------------------------------------
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|node_modules)$'
-
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 
 " ----------------------------------------------------------------------------
