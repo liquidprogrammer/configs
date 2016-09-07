@@ -25,19 +25,24 @@ Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'majutsushi/tagbar'
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" With local-eslint opening JS files become veeery slow
+" Plug 'mtscout6/syntastic-local-eslint.vim'
 
 "Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -47,11 +52,14 @@ call plug#end()
 " ----------------------------------------------------------------------------
 " General
 " ----------------------------------------------------------------------------
+let mapleader = ","
+
 set encoding=utf-8  " uft-8 by default
 set ls=2            " always show status bar
 set incsearch
 set hlsearch        " highlight search results
 set nu              " show line numbers
+set cursorline      " highlight current line
 
 " disable backup/swap files
 set nobackup
@@ -69,7 +77,7 @@ set clipboard+=unnamedplus
 
 
 " ----------------------------------------------------------------------------
-" Buffers 
+" Buffers
 " ----------------------------------------------------------------------------
 set splitbelow
 set splitright
@@ -79,6 +87,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 
+nnoremap <F5> :bnext<CR>
+nnoremap <F6> :bprev<CR>
 
 
 " ----------------------------------------------------------------------------
@@ -115,7 +125,7 @@ if argc() == 0                        " Show NERDTree if vim started without par
   autocmd VimEnter * NERDTree
 endif
 
-map <F2> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 
 " NERDTree files highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -137,20 +147,30 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 
 
 " ----------------------------------------------------------------------------
-" CtrlP 
+" CtrlP
 " ----------------------------------------------------------------------------
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+nnoremap <C-T> :CtrlPTag<cr>
 
 
 " ----------------------------------------------------------------------------
-" Airline 
+" TagBar 
+" ----------------------------------------------------------------------------
+map <F4> :TagbarToggle<CR>
+let g:tagbar_autofocus = 0    " autofocus on Tagbar on opened
+
+
+
+
+" ----------------------------------------------------------------------------
+" Airline
 " ----------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
 
 
 
 " ----------------------------------------------------------------------------
-" YouCompleteMe 
+" YouCompleteMe
 " ----------------------------------------------------------------------------
 let g:ycm_autoclose_preview_window_after_completion = 1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -158,10 +178,10 @@ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 " ----------------------------------------------------------------------------
-" Syntastic 
+" Syntastic
 " ----------------------------------------------------------------------------
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0

@@ -3,6 +3,9 @@
 # install vim-gtk - to be able to work with system clipboard
 sudo apt-get install vim-gtk
 
+# install ctags
+sudo apt-get install exuberant-ctags
+
 # install YCM dependencies
 sudo apt-get install build-essential cmake
 sudo apt-get install python-dev python3-dev
