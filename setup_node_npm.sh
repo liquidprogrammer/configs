@@ -27,5 +27,7 @@ npm config set prefix $NPM_G_DIR
 BASHRC=~/.bashrc
 echo "" >> $BASHRC
 echo "" >> $BASHRC
-echo "# NPM global binaries" >> $BASHRC
+echo "# Node and npm" >> $BASHRC
 echo "export PATH=\"$NPM_G_DIR/bin:\$PATH\"" >> $BASHRC
+echo "export NODE_PATH=\"$NPM_G_DIR/lib/node_modules:\$NODE_PATH\"" >> $BASHRC
+
