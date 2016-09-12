@@ -1,20 +1,11 @@
 #!/bin/bash
 
-########################
-####### NODEJS #########
-########################
-
-NODEJS_VERSION=4
-
+# Node js
+NODEJS_VERSION=6
 curl -sL https://deb.nodesource.com/setup_$NODEJS_VERSION.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-
-
-########################
-######### NPM ##########
-########################
-
+# Npm
 NPM_G_DIR=~/.npm-global
 
 # new directory for global installations
