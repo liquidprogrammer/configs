@@ -6,6 +6,11 @@ sudo apt-get install vim-gtk
 # install ctags
 sudo apt-get install exuberant-ctags
 
+# install vim-instant-markdown dependencies
+npm -g install instant-markdown-d
+sudo apt-get install xdg-utils
+sudo apt-get install curl
+
 # install YCM dependencies
 sudo apt-get install build-essential cmake
 sudo apt-get install python-dev python3-dev

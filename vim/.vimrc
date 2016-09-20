@@ -43,6 +43,8 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 "Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 
+" Markdown
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " Add plugins to &runtimepath
 call plug#end()
