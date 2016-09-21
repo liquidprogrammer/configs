@@ -44,11 +44,10 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 
 " Markdown
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 
 " Add plugins to &runtimepath
 call plug#end()
-
 
 
 " ----------------------------------------------------------------------------
