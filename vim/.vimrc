@@ -26,7 +26,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 " Navigation
 Plug 'ctrlpvim/ctrlp.vim'
@@ -39,6 +39,9 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 " With local-eslint opening JS files become veeery slow
 " Plug 'mtscout6/syntastic-local-eslint.vim'
+
+" Typescript
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 "Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
