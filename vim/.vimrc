@@ -104,7 +104,7 @@ set shiftwidth=2                      " softtabs are 2 spaces for expandtab
 
 " Alignment tabs are two spaces, and never tabs. Negative means use same as
 " shiftwidth (so the 2 actually doesn't matter).
-set softtabstop=-2
+set softtabstop=2
 
 " real tabs render width. Applicable to HTML, PHP, anything using real tabs.
 " I.e., not applicable to JS.

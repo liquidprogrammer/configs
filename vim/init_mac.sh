@@ -1,14 +1,17 @@
-#!/bin/bash
-
-# install vim-gtk - to be able to work with system clipboard
-sudo apt-get install vim-gtk
+#!/usr/local/bin/bash
 
 # install ctags
-sudo apt-get install exuberant-ctags
+brew install ctags
+
+which_ctags=$(which ctags)
+if [[ ! $which_ctags == *"/usr/local/bin"* ]]; then
+  echo "" >> ~/.bashrc
+  echo 'PATH=\"/usr/local/bin:$PATH' >> ~/.bashrc
+fi
+
 
 # install YCM dependencies
-sudo apt-get install build-essential cmake
-sudo apt-get install python-dev python3-dev
+brew install cmake
 
 # install vim-plug
 echo -e '\n\nInstalling Plug.vim...'
