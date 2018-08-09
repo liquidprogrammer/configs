@@ -1,27 +1,7 @@
 #!/bin/bash
 
-# install ctags
-sudo apt-get install exuberant-ctags
-
-# install YCM dependencies
-sudo apt-get install build-essential cmake
-sudo apt-get install python-dev python3-dev
-
-# install vim-plug
-echo -e '\n\nInstalling Plug.vim...'
-plug_vim_path=~/.vim/autoload/plug.vim
-if [ ! -e $plug_vim_path ]; then
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  echo 'Done.'
-else
-  echo 'Already installed.'
-fi
-
-
-
 # create link for vimrc
-echo -e '\n\nCreating links...'
+echo -e '\n\nCreating symbolic links for vim...'
 
 declare -A paths
 paths=( 
@@ -36,8 +16,3 @@ for path_by_pwd in "${!paths[@]}"; do
   echo "Link '$path_by_root' to '$path_by_pwd' created." 
 done
 echo -e 'Done.\n\n'
-
-
-
-# install vim-plug packages
-vim +PlugInstall +qall
