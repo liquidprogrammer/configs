@@ -21,7 +21,6 @@ set history=100						" Keep X commands in history
 set number							" set line number
 set t_Co=256						" Enable 256 colors
 set noswapfile
-set listchars=tab:▸\ ,eol:¬
 
 set background=dark
 colorscheme liquid
