@@ -7,6 +7,7 @@ declare -A paths
 paths=( 
   ["$PWD/.vimrc"]="$HOME/.vimrc"
   ["$PWD/ftplugin"]="$HOME/.vim/ftplugin"
+  ["$PWD/colors"]="$HOME/.vim/colors"
 )
 for path_by_pwd in "${!paths[@]}"; do
   path_by_root="${paths[$path_by_pwd]}"
