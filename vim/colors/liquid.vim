@@ -41,33 +41,19 @@ let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
 let s:light_yellow    = { "gui": "#ffff87", "cterm": "228"   }
 let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
 
-let s:background = &background
+let s:background = "dark"
 
-if &background == "dark"
-  let s:bg              = s:black
-  let s:bg_subtle       = s:lighter_black
-  let s:bg_very_subtle  = s:subtle_black
-  let s:norm            = s:lighter_gray
-  let s:norm_subtle     = s:medium_gray
-  let s:purple          = s:light_purple
-  let s:cyan            = s:light_cyan
-  let s:green           = s:dark_green
-  let s:red             = s:dark_red
-  let s:visual          = s:dark_purple
-  let s:yellow          = s:dark_yellow
-else
-  let s:bg              = s:actual_white
-  let s:bg_subtle       = s:light_gray
-  let s:bg_very_subtle  = s:lightest_gray
-  let s:norm            = s:light_black
-  let s:norm_subtle     = s:medium_gray
-  let s:purple          = s:dark_purple
-  let s:cyan            = s:dark_cyan
-  let s:green           = s:dark_green
-  let s:red             = s:dark_red
-  let s:visual          = s:dark_purple
-  let s:yellow          = s:dark_yellow
-endif
+let s:bg              = s:black
+let s:bg_subtle       = s:medium_gray
+let s:bg_very_subtle  = s:subtle_black
+let s:norm            = s:white
+let s:norm_subtle     = s:light_cyan
+let s:purple          = s:light_purple
+let s:cyan            = s:light_cyan
+let s:green           = s:dark_green
+let s:red             = s:dark_red
+let s:visual          = s:dark_purple
+let s:yellow          = s:yellow
 
 " https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
@@ -135,9 +121,9 @@ call s:h("Error",         {"fg": s:actual_white, "bg": s:red, "cterm": "bold"})
 call s:h("Todo",          {"fg": s:red, "gui": "underline", "cterm": "underline"})
 call s:h("Note",		  {"fg": s:green, "gui": "underline", "cterm": "underline"})
 call s:h("Important",	  {"fg": s:yellow, "gui": "underline", "cterm": "underline"})
-call matchadd('Note', 'NOTE.*:')
-call matchadd('Todo', 'TODO.*:')
-call matchadd('Important', 'IMPORTANT.*:')
+call matchadd('Note', 'NOTE')
+call matchadd('Todo', 'TODO')
+call matchadd('Important', 'IMPORTANT')
 call s:h("SpecialKey",    {"fg": s:light_green})
 call s:h("NonText",       {"fg": s:medium_gray})
 call s:h("Directory",     {"fg": s:dark_blue})
