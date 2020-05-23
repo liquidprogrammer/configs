@@ -1,0 +1,29 @@
+# Because who cares about case!?
+--smart-case
+
+# Do not respect .gitignore, etc...
+# --no-ignore
+
+# Search hidden files and folders
+--hidden
+
+# Follow symlinks
+--follow
+
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--column
+--max-columns=150
+--max-columns-preview
+
+# Gargbage type to filter this files out
+--type-add=garbage:*DS_Store
+
+# Ignoring garbage :)
+--type-not=garbage
+
+# Using glob patterns to include/exclude files or folders
+# --glob=!*.git/**
+# --glob=!*node_modules/**
+# --glob=!*target/**
+# --glob=!*.idea/**
+

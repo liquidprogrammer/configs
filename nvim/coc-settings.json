@@ -1,0 +1,9 @@
+{
+    "suggest.autoTrigger": "none",
+    "suggest.enablePreview": true,
+    "typescript.preferences.noSemicolons": true,
+    "typescript.suggestionActions.enabled": false,
+    "typescript.suggest.completeFunctionCalls": false,
+    "typescript.validate.enable": false,
+    "tsserver.formatOnType": false
+}
