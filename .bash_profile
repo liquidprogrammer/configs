@@ -2,7 +2,7 @@ export PS1="\w$ "
 export LC_ALL=en_US.UTF-8
 
 # configs home
-export MY_CONFIGS_HOME='$HOME/.my/configs'
+export MY_CONFIGS_HOME="$HOME/.my/configs"
 
 export XDG_CONFIG_HOME="$MY_CONFIGS_HOME"
 
