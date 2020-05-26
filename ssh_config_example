@@ -1,4 +1,5 @@
 # always forget how to configure multiple ssh keys for different hosts, here is an example
+# put this to .ssh/config
 
 # github account
 Host github.com
