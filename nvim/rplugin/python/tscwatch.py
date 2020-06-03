@@ -32,12 +32,12 @@ class QuickFix(object):
     # open()
     def open(self):
         self.nvim.async_call(self.nvim.command, 'echo "QF open"')
-        self.nvim.async_call(self.nvim.command, 'copen')
+        # self.nvim.async_call(self.nvim.command, 'copen')
 
     # close()
     def close(self):
         self.nvim.async_call(self.nvim.command, 'echo "QF close"')
-        self.nvim.async_call(self.nvim.command, 'cclose')
+        # self.nvim.async_call(self.nvim.command, 'cclose')
 
     # append()
     def append(self,

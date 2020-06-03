@@ -11,6 +11,8 @@ export FZF_DEFAULT_OPTS='--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:tog
 export FZF_DEFAULT_COMMAND='rg --files'
 export RIPGREP_CONFIG_PATH="$MY_CONFIGS_HOME/.ripgreprc"
 
+export NO_UPDATE_NOTIFIER=true
+
 # Aliases
 alias vim="nvim"
 alias vi="nvim"
