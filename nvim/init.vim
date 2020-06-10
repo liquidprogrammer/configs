@@ -1,3 +1,7 @@
+" Don't forget to run :UpdateRemotePlugins everytime you change remote plugins
+" like tscwatch.py
+
+
 let mapleader = " "
 
 " ==========================================

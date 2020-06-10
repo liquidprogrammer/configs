@@ -22,7 +22,7 @@
 --type-not=garbage
 
 # Using glob patterns to include/exclude files or folders
-# --glob=!*.git/**
+--glob=!*.git/**
 # --glob=!*node_modules/**
 # --glob=!*target/**
 # --glob=!*.idea/**
