@@ -32,7 +32,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arzg/vim-plan9'
 
 " coc extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-yank', 'coc-prettier']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-rls', 'coc-yank', 'coc-prettier']
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -125,6 +125,12 @@ augroup vimrc
 	autocmd! BufWritePost $MYVIMRC nested source % | echom "Reloaded " . $MYVIMRC | redraw
 augroup END<Paste>
 
+" Automatically open, but do not go to (if there are errors) the quickfix /
+" location list window, or close it when is has become empty.
+" Taken from: https://vim.fandom.com/wiki/Automatically_open_the_quickfix_window_on_:make
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
 " ==========================================
 " ==========================================
 " =============== Mappings =================
@@ -163,6 +169,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 map <C-s> :w<CR>
+map <leader>j :make build<CR>
+map <leader>k :make run<CR>
 map <leader>ff :Files<CR>
 map <leader>bd :bd<CR>
 map <leader>bb :Buffers<CR>
