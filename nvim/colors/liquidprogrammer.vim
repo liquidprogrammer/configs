@@ -2,6 +2,10 @@
 " liquidprogrammer
 " Created by liquidprogrammer with ThemeCreator (https://github.com/mswift42/themecreator)
 " Inspired by colors that Casey Muratori use on handmadehero.org
+"
+" TODO: remove highlights of function calls, they work incorrectly anyway;
+" foo.blah.add() <- add will be highlighted
+" foo.blah.remove() <- remove won't be highlighted
 
 hi clear
 
@@ -42,7 +46,7 @@ exe 'hi CursorColumn  guibg='s:bg2
 exe 'hi ColorColumn  guibg='s:bg2
 exe 'hi LineNr guifg='s:fg2' guibg='s:bg2
 exe 'hi VertSplit guifg='s:fg3' guibg='s:bg3
-exe 'hi MatchParen guifg='s:warning2'  gui=underline'
+exe 'hi MatchParen guifg='s:warning2' guibg='s:bg3'  gui=underline'
 exe 'hi StatusLine guifg='s:fg2' guibg='s:bg3' gui=bold'
 exe 'hi Pmenu guifg='s:fg' guibg='s:bg2
 exe 'hi PmenuSel  guibg='s:bg3
@@ -67,17 +71,17 @@ exe 'hi ErrorMsg guifg='s:warning' guibg='s:bg2' gui=bold'
 exe 'hi WarningMsg guifg='s:fg' guibg='s:warning2
 exe 'hi Float guifg='s:const
 exe 'hi Function guifg='s:func
-exe 'hi Identifier guifg='s:type'  gui=italic'
+exe 'hi Identifier guifg='s:type
 exe 'hi Keyword guifg='s:keyword'  gui=bold'
 exe 'hi Label guifg='s:var
 exe 'hi NonText guifg='s:bg4' guibg='s:bg2
 exe 'hi Number guifg='s:const
-exe 'hi Operater guifg='s:keyword
+exe 'hi Operator guifg='s:keyword
 exe 'hi PreProc guifg='s:keyword
 exe 'hi Special guifg='s:fg
 exe 'hi SpecialKey guifg='s:fg2' guibg='s:bg2
 exe 'hi Statement guifg='s:keyword
-exe 'hi StorageClass guifg='s:type'  gui=italic'
+exe 'hi StorageClass guifg='s:type
 exe 'hi String guifg='s:str
 exe 'hi Tag guifg='s:keyword
 exe 'hi Title guifg='s:fg'  gui=bold'
