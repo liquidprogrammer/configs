@@ -29,9 +29,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colors
-Plug 'pbrisbin/vim-colors-off'
 Plug 'arzg/vim-plan9'
-Plug 'ayu-theme/ayu-vim'
 
 " coc extensions
 let g:coc_global_extensions = ['coc-tsserver', 'coc-yank', 'coc-prettier']
@@ -118,9 +116,6 @@ set listchars=tab:\|\ " Space after slash
 " ==========================================
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Automatically delete all trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
-
 " Typescript filetype
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
@@ -201,9 +196,7 @@ vmap y ygv<Esc>
 
 " Colors
 set termguicolors
-set background=light
+set background=dark
 set cursorline
-let ayucolor="mirage"
-"colorscheme ayu
-colorscheme plan9
-"colorscheme off
+"colorscheme plan9
+colorscheme liquidprogrammer
