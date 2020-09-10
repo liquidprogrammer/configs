@@ -2,10 +2,6 @@
 " liquidprogrammer
 " Created by liquidprogrammer with ThemeCreator (https://github.com/mswift42/themecreator)
 " Inspired by colors that Casey Muratori use on handmadehero.org
-"
-" TODO: remove highlights of function calls, they work incorrectly anyway;
-" foo.blah.add() <- add will be highlighted
-" foo.blah.remove() <- remove won't be highlighted
 
 hi clear
 
@@ -34,8 +30,8 @@ let s:func="#A08563"
 let s:str="#6B8E23"
 let s:type="#CD950C"
 let s:var="#A08563"
-let s:warning="#A08563"
-let s:warning2="#A08563"
+let s:warning="#161616"
+let s:warning2="#161616"
 
 exe 'hi Normal guifg='s:fg' guibg='s:bg
 exe 'hi Visual guifg='s:fg' guibg='s:bg2
@@ -76,12 +72,12 @@ exe 'hi Keyword guifg='s:keyword'  gui=bold'
 exe 'hi Label guifg='s:var
 exe 'hi NonText guifg='s:bg4' guibg='s:bg2
 exe 'hi Number guifg='s:const
-exe 'hi Operator guifg='s:keyword
+exe 'hi Operater guifg='s:keyword
 exe 'hi PreProc guifg='s:keyword
 exe 'hi Special guifg='s:fg
 exe 'hi SpecialKey guifg='s:fg2' guibg='s:bg2
 exe 'hi Statement guifg='s:keyword
-exe 'hi StorageClass guifg='s:type
+exe 'hi StorageClass guifg='s:type'  gui=italic'
 exe 'hi String guifg='s:str
 exe 'hi Tag guifg='s:keyword
 exe 'hi Title guifg='s:fg'  gui=bold'
