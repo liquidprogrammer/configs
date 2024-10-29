@@ -115,6 +115,8 @@ set listchars=tab:\|\ " Space after slash
 " ==========================================
 " ==========================================
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 MdOpen :CocCommand markdown-preview-enhanced.openPreview
+command! -nargs=0 TscQf :CocCommand tsserver.watchBuild
 
 " Typescript filetype
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
@@ -144,12 +146,17 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
+" use <tab> for trigger completion and navigate to next complete option
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -157,6 +164,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Vim
 map <leader>ve :e $MYVIMRC<CR>
 map <leader>vs :so $MYVIMRC<CR>
+
+" Notes?
+map <leader>ne :e ~/Documents/notes/todo.txt<CR>
 
 " Ranger bindings
 map <leader>rr :Ranger<CR>
@@ -175,6 +185,12 @@ map <leader>ff :Files<CR>
 map <leader>bd :bd<CR>
 map <leader>bb :Buffers<CR>
 map <leader>nh :nohl<CR>
+map <leader>pp :Prettier<CR>
+map <leader>md :MdOpen<CR>
+
+map <leader>dd :call CocAction('doHover')<CR>
+map <leader>do <Plug>(coc-codeaction)
+map <leader>rn <Plug>(coc-rename)
 
 
 " Fzf actions

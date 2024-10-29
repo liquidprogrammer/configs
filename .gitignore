@@ -2,3 +2,5 @@
 ranger/
 coc/
 configstore/
+mume/
+nodemon.json

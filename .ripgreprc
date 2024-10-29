@@ -23,7 +23,7 @@
 
 # Using glob patterns to include/exclude files or folders
 --glob=!*.git/**
-# --glob=!*node_modules/**
+--glob=!*node_modules/**
 # --glob=!*target/**
 # --glob=!*.idea/**
 

@@ -1,4 +1,4 @@
-export PS1="\w$ "
+export PROMPT="%n:%1d:~$ "
 export LC_ALL=en_US.UTF-8
 
 # configs home

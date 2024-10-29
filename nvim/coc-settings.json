@@ -4,7 +4,7 @@
     "typescript.preferences.noSemicolons": true,
     "typescript.suggestionActions.enabled": false,
     "typescript.suggest.completeFunctionCalls": false,
-    "typescript.validate.enable": false,
+    "typescript.validate.enable": true,
     "tsserver.formatOnType": false,
     "rust.show_warnings": false
 }
